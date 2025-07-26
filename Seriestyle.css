@@ -106,7 +106,7 @@ header h1 {
 /* Tooltip container */
 .tooltip {
     position: absolute;
-    bottom: 110%;
+    bottom: 70%;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(30, 20, 50, 0.95);
@@ -118,7 +118,7 @@ header h1 {
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 10;
+    z-index: 1;
     box-shadow: 0 2px 10px rgba(166, 108, 255, 0.3);
 }
 

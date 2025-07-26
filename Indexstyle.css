@@ -76,6 +76,8 @@ header h1 {
 .container {
     flex: 0 0 170px;
     position: relative;
+    margin-left: 50px;
+    margin-top: 20px;
 }
 
 .Filmbox {
@@ -123,7 +125,7 @@ header h1 {
 
 .tooltip {
     position: absolute;
-    bottom: 110%;
+    bottom: 70%;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(30, 20, 50, 0.95);
@@ -132,10 +134,10 @@ header h1 {
     border-radius: 8px;
     width: 250px;
     font-size: 13px;
+    pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 10;
-    pointer-events: none;
+    z-index: 1;
     box-shadow: 0 2px 10px rgba(166, 108, 255, 0.3);
 }
 
