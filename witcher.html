@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Перегляд фільму HLS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="watchstyle.css" rel="stylesheet">
+
+</head>
+
+
+<header>
+  <h1>Мастер-Фільм</h1>
+  <div class="menu">
+    <a href="index.html">Головна</a>
+    <a href="Series.html">Серіали</a>
+    <a href="Films.html">Фільми</a>
+    <a href="Shows.html">Мультфільми</a>
+  </div>
+</header>
+
+<body>
+  <div class="Text">
+    
+    <img class="Poster" src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p17580215_b_v13_ab.jpg">
+
+    <div class="info">
+        Рік:2019
+        Жанр:Серіали, Драма, Фентезі, Бойовик, Пригоди
+        Країна:Польща, США
+        Режисер:Алік Сахаров, Алекс Гарсія Лопес
+        Актори:Генрі Кавілл, Фрея Аллан, Джої Беті, МайАнна Бернінг, Том Кентон, Аня Чалотра, Імон Феррен, Адам Леві, Джоді Мей, Ларс Міккельсен, Мімі Ндівені, Ройс Пірресон
+    </div>
+
+    <div class="Summary">
+      Відьмак — американський телесеріал в жанрі фентезі з циклу романів Анджея Сапковського. Головним персонажем серіалу є Геральт з Рівії, відомий мисливець за монстрами. Він мутував в дитинстві, в результаті чого йому перейшла надлюдська сила, швидкість і швидка відновлюваність. Пізніше він знайшов своє покликання — вбивати страшних монстрів за гроші. Геральт намагається освоїтися в світі, де люди часто виявляються набагато злішими, ніж звірі.
+    </div>
+    
+  </div>
+
+  <video id="player" controls
+    x-webkit-airplay="allow"
+    disableremoteplayback="true"
+    pip="false"
+    controlslist="nodownload"
+    preload="none"
+  >
+    Ваш браузер не підтримує відео.
+  </video>
+
+  <!-- hls.js бібліотека -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('player');
+    const videoSrc = "https://calypso.tortuga.tw/hls/serials/the.witcher.s01e01.dontstoprod.mvo_10535/hls/index.m3u8";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', function () {
+        video.play();
+      });
+    } else {
+      alert("Ваш браузер не підтримує HLS.");
+    }
+  </script>
+
+</body>
+</html>
+
+

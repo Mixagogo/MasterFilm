@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Перегляд фільму HLS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="watchstyle.css" rel="stylesheet">
+  
+</head>
+
+
+<header>
+  <h1>Мастер-Фільм</h1>
+  <div class="menu">
+    <a href="index.html">Головна</a>
+    <a href="Series.html">Серіали</a>
+    <a href="Films.html">Фільми</a>
+    <a href="Shows.html">Мультфільми</a>
+  </div>
+</header>
+
+<body>
+  <div class="Text">
+    
+    <img class="Poster" src="https://upload.wikimedia.org/wikipedia/ru/thumb/d/d7/Coco_%282017_film%29_logo.jpg/330px-Coco_%282017_film%29_logo.jpg" alt="Постер дюни">
+
+    <div class="info">
+      Рік:        2017
+      Жанр:       Мультфільми
+      Країна:     США
+      Режисер:    Лі Анкріч, Адріан Моліна
+      Актори:     Ентоні Гонсалес, Ґаель Ґарсіа Берналь, Бенджамін Бретт, Рені Віктор, Аланна Юбак, Хайме Каміль, Гебріел Іглесіас, Альфонсо Арау  
+    </div>
+
+    <div class="Summary">
+      Мультфільм «Коко» розповідає історію про пригоди 12-річного юнака з бідної мексиканської сім'ї. Мігель мріє стати музикантом, але з цим виникає багато складнощів, адже його близькі зовсім не хочуть, щоб він цим займався. У їхній родині музика знаходиться під забороною з тих пір, як прадід Мігеля втік з дому, щоб стати музикантом. Однак наш герой зовсім не відмовляється від своєї мрії і прагне стати таким же великим, як і його покійний кумир Ернесто де ла Крус.
+      Одного разу хлопцеві випадає дивовижний шанс відправитися на пошуки Ернесто. Чудовим чином, він разом зі своїм песиком переноситься в світ мертвих, де на нього чекають дивовижні пригоди. Юнакові належить через багато пройти, щоб пізнати істину і зробити найважливіший вибір у своєму житті...
+    </div>
+    
+  </div>
+
+  <video id="player" controls
+    x-webkit-airplay="allow"
+    disableremoteplayback="true"
+    pip="false"
+    controlslist="nodownload"
+    preload="none"
+  >
+    Ваш браузер не підтримує відео.
+  </video>
+
+  <!-- hls.js бібліотека -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('player');
+    const videoSrc = "https://calypso.tortuga.tw/hls/films/coco_2017_bdrip_1080p_h.265_ukr_eng_hurtom_1212/hls/index.m3u8";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', function () {
+        video.play();
+      });
+    } else {
+      alert("Ваш браузер не підтримує HLS.");
+    }
+  </script>
+
+</body>
+</html>
+
+
+
