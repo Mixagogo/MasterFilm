@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мастер-Фільм</title>
-    <link href="Indexstyle.css" rel="stylesheet">
-	<script src="Filmscript.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мастер-Фільм</title>
+  <link href="Indexstyle.css" rel="stylesheet">
+  <script src="Filmscript.js"></script>
 </head>
-
-<body>
 
 <header>
   <h1>Мастер-Фільм</h1>
@@ -20,13 +18,13 @@
   </div>
 </header>
 
+<body>
 <div class="Category" id="Films">
   <h1>Фільми</h1>
-  <div class="carousel-wrapper">
-    <button class="carousel-btn left" onclick="slideCarousel('Series', -1)">‹</button>
-    <div class="carousel" id="carousel-Series">
-      <!-- Картки серіалів -->
-      <div class="container">
+    <div class="carousel-wrapper">
+      <button class="carousel-btn left" onclick="slideCarousel('Films', -1)">‹</button>
+      <div class="carousel" id="carousel-Films">
+
         <div class="Filmbox">
           <img class="Poster" src="https://upload.wikimedia.org/wikipedia/ru/thumb/f/f1/%D0%94%D1%8E%D0%BD%D0%B0_%D0%BE%D1%84%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/250px-%D0%94%D1%8E%D0%BD%D0%B0_%D0%BE%D1%84%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg" alt="Постер дюни">
           <h3>Дюна</h3>
@@ -38,136 +36,133 @@
             <strong>Актори:</strong> Тімоті Шаламе, Ребекка Фергюсон, Оскар Айзек, Джош Бролін, Джейсон Момоа, Зендея, Стеллан Скарсгард<br>
           </div>
         </div>
-      </div>
-      <!-- Копіюй/додавай інші контейнер -->
-      <div class="container">
         <div class="Filmbox">
           <img class="Poster" src="https://static.wikia.nocookie.net/dcpedia/images/0/00/Aquaman_Poster.png/revision/latest?cb=20190822062857&path-prefix=ru" alt="Акавмен">
           <h3>Аквамен</h3>
-          <button>Переглянути</button>
+
+            <button>Переглянути</button>
+
           <div class="tooltip">
             <strong>Рейтинг:</strong> 7.9/10<br>
             <strong>Актори:</strong> Alice, Bob<br>
-            <strong>Опис:</strong> Драматична історія про дружбу і пригоди.
           </div>
         </div>
-      </div>
-	  <div class="container">
         <div class="Filmbox">
           <img class="Poster" src="https://upload.wikimedia.org/wikipedia/uk/0/05/%D0%A2%D1%80%D0%B5%D1%82%D1%96%D0%B9_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80_%D0%9B%D1%8E%D0%B4%D0%B8%D0%BD%D0%B8-%D0%BF%D0%B0%D0%B2%D1%83%D0%BA%D0%B0._%D0%94%D0%BE%D0%B4%D0%BE%D0%BC%D1%83_%D1%88%D0%BB%D1%8F%D1%85%D1%83_%D0%BD%D0%B5%D0%BC%D0%B0.jpg" alt="Людина-павук: Додому шляху нема">
-          <h3>Людина-павук: Додому шляху нема</h3>
-          <button>Переглянути</button>
+          <h3>Людина-павук:</h3>
+          <h3>Додому шляху нема</h3>
+
+            <button>Переглянути</button>
+
           <div class="tooltip">
             <strong>Рейтинг:</strong> 7.9/10<br>
             <strong>Актори:</strong> Alice, Bob<br>
-            <strong>Опис:</strong> Драматична історія про дружбу і пригоди.
           </div>
         </div>
-      </div>
-	  <div class="container">
         <div class="Filmbox">
           <img class="Poster" src="https://upload.wikimedia.org/wikipedia/uk/thumb/4/49/%D0%94%D0%B5%D0%B4%D0%BF%D1%83%D0%BB_%D1%96_%D0%A0%D0%BE%D1%81%D0%BE%D0%BC%D0%B0%D1%85%D0%B0_%28%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80%29.jpg/250px-%D0%94%D0%B5%D0%B4%D0%BF%D1%83%D0%BB_%D1%96_%D0%A0%D0%BE%D1%81%D0%BE%D0%BC%D0%B0%D1%85%D0%B0_%28%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80%29.jpg" alt="Дедпул і Росомаха">
           <h3>Дедпул і Росомаха</h3>
-          <button>Переглянути</button>
+
+            <button>Переглянути</button>
+
           <div class="tooltip">
             <strong>Рейтинг:</strong> 7.9/10<br>
             <strong>Актори:</strong> Alice, Bob<br>
-            <strong>Опис:</strong> Драматична історія про дружбу і пригоди.
           </div>
         </div>
-      </div>
-	  <div class="container">
         <div class="Filmbox">
           <img class="Poster" src="https://upload.wikimedia.org/wikipedia/uk/thumb/8/8a/Dark_Knight.jpg/250px-Dark_Knight.jpg" alt="Темний лицар">
           <h3>Темний лицар</h3>
-          <button>Переглянути</button>
+
+            <button>Переглянути</button>
+
           <div class="tooltip">
             <strong>Рейтинг:</strong> 7.9/10<br>
             <strong>Актори:</strong> Alice, Bob<br>
-            <strong>Опис:</strong> Драматична історія про дружбу і пригоди.
           </div>
         </div>
-      </div>
-	  <div class="container">
         <div class="Filmbox">
           <img class="Poster" src="https://upload.wikimedia.org/wikipedia/uk/7/7c/A_Quiet_Place_%28film_poster%29.png" alt="Another film">
           <h3>Тихе місце</h3>
           <a href="Quite_Place1.html">
-            <button>Переглянути</button>
+          <button>Переглянути</button>
           </a>
           <div class="tooltip">
             <strong>Рейтинг:</strong> 7.5/10<br>
             <strong>Актори:</strong> Емілі Блант, Джон Красінські, Ноа Джуп, Міллісент Сіммондс, Леон Рассом, Кейд Вудворд, Доріс МакКарті<br>
           </div>
         </div>
-      </div>
-    <button class="carousel-btn right" onclick="slideCarousel('Series', 1)">›</button>
+
+    </div>
+    <button class="carousel-btn right" onclick="slideCarousel('Films', 1)">›</button>
   </div>
 </div>
+
+
 
 <div class="Category" id="Shows">
   <h1>Мультфільми</h1>
   <div class="carousel-wrapper">
-    <button class="carousel-btn left" onclick="slideCarousel('Films', -1)">‹</button>
-    <div class="carousel" id="carousel-Films">
-      <div class="container">
-        <div class="Filmbox">
-          <img class="Poster" src="https://upload.wikimedia.org/wikipedia/ru/thumb/d/d7/Coco_%282017_film%29_logo.jpg/330px-Coco_%282017_film%29_logo.jpg" alt="Film 1">
-          <h3>Коко</h3>
-          <a href="Coco.html">
-          <button>Переглянути</button>
-          </a>
-          <div class="tooltip">
-            <strong>Рейтинг:</strong> 8.4/10<br>
-            <strong>Актори:</strong> Ентоні Гонсалес, Ґаель Ґарсіа Берналь, Бенджамін Бретт, Рені Віктор, Аланна Юбак, Хайме Каміль, Гебріел Іглесіас, Альфонсо Арау<br>
-          </div>
-        </div>
-      </div>
-    <div class="container">
+    <button class="carousel-btn left" onclick="slideCarousel('Shows', -1)">‹</button>
+    <div class="carousel" id="carousel-Shows">
+
       <div class="Filmbox">
         <img class="Poster" src="https://upload.wikimedia.org/wikipedia/ru/thumb/d/d7/Coco_%282017_film%29_logo.jpg/330px-Coco_%282017_film%29_logo.jpg" alt="Film 1">
-          <h3>Коко</h3>
-          <a href="Coco.html">
+        <h3>Коко</h3>
+        <a href="Coco.html">
           <button>Переглянути</button>
-          </a>
-          <div class="tooltip">
-            <strong>Рейтинг:</strong> 8.4/10<br>
-            <strong>Актори:</strong> Ентоні Гонсалес, Ґаель Ґарсіа Берналь, Бенджамін Бретт, Рені Віктор, Аланна Юбак, Хайме Каміль, Гебріел Іглесіас, Альфонсо Арау<br>
-          </div>
+        </a>
+        <div class="tooltip">
+          <strong>Рейтинг:</strong> 8.4/10<br>
+          <strong>Актори:</strong> Ентоні Гонсалес, Ґаель Ґарсіа Берналь, Бенджамін Бретт, Рені Віктор, Аланна Юбак, Хайме Каміль, Гебріел Іглесіас, Альфонсо Арау<br>
+        </div>
+      </div>
+      <div class="Filmbox">
+        <img class="Poster" src="https://upload.wikimedia.org/wikipedia/ru/thumb/d/d7/Coco_%282017_film%29_logo.jpg/330px-Coco_%282017_film%29_logo.jpg" alt="Film 1">
+        <h3>Коко</h3>
+        <a href="Coco.html">
+          <button>Переглянути</button>
+        </a>
+        <div class="tooltip">
+          <strong>Рейтинг:</strong> 8.4/10<br>
+          <strong>Актори:</strong> Ентоні Гонсалес, Ґаель Ґарсіа Берналь, Бенджамін Бретт, Рені Віктор, Аланна Юбак, Хайме Каміль, Гебріел Іглесіас, Альфонсо Арау<br>
         </div>
       </div>
 
+
     </div>
-    <button class="carousel-btn right" onclick="slideCarousel('Films', 1)">›</button>
+    <button class="carousel-btn right" onclick="slideCarousel('Shows', 1)">›</button>
   </div>
 </div>
+
+
 
 <div class="Category" id="Series">
   <h1>Серіали</h1>
   <div class="carousel-wrapper">
-    <button class="carousel-btn left" onclick="slideCarousel('Films', -1)">‹</button>
-    <div class="carousel" id="carousel-Films">
-      <div class="container">
-        <div class="Filmbox">
-          <img class="Poster" src="https://images.ctfassets.net/ub3bwfd53mwy/5WFv6lEUb1e6kWeP06CLXr/acd328417f24786af98b1750d90813de/4_Image.jpg?w=750" alt="Film 1">
-          <h3>Film 1</h3>
+    <button class="carousel-btn left" onclick="slideCarousel('Series', -1)">‹</button>
+    <div class="carousel" id="carousel-Series">
+
+      <div class="Filmbox">
+        <img class="Poster" src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p17580215_b_v13_ab.jpg">
+        <h3>Відьмак</h3>
+        <a href="witcher.html">
           <button>Переглянути</button>
-          <div class="tooltip">
-            <strong>Рейтинг:</strong> 9.0/10<br>
-            <strong>Актори:</strong> Tom, Jerry<br>
-            <strong>Опис:</strong> Епічний фільм про боротьбу добра і зла.
-          </div>
+        </a>
+        <div class="tooltip">
+          <strong>Рейтинг:</strong> 8.2/10<br>
+          <strong>Актори:</strong> Генрі Кавілл, Фрея Аллан, Джої Беті, МайАнна Бернінг, Том Кентон, Аня Чалотра, Імон Феррен, Адам Леві, Джоді Мей, Ларс Міккельсен, Мімі Ндівені, Ройс Пірресон<br>
         </div>
       </div>
-      <!-- додай інші -->
+      
     </div>
-    <button class="carousel-btn right" onclick="slideCarousel('Films', 1)">›</button>
+    <button class="carousel-btn right" onclick="slideCarousel('Series', 1)">›</button>
   </div>
 </div>
 
 </body>
-<footer>
-    
 
+<footer>
 </footer>
+
 </html>

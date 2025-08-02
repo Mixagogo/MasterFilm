@@ -68,16 +68,10 @@ header h1 {
 
 .carousel {
     display: flex;
-    gap: 20px;
+    gap: 50px;
     transition: transform 0.3s ease;
     padding-bottom: 20px;
-}
-
-.container {
-    flex: 0 0 170px;
-    position: relative;
-    margin-left: 50px;
-    margin-top: 20px;
+    padding-top: 20px;
 }
 
 .Filmbox {
@@ -88,6 +82,10 @@ header h1 {
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 10px rgba(166, 108, 255, 0.1);
+    flex: 0 0 170px;
+    position: relative;
+    margin-left: 50px;
+    margin-top: 20px;
 }
 
 .Filmbox:hover {

@@ -50,14 +50,6 @@ header h1 {
     width: 100%;
 }
 
-.container {
-    flex: 0 0 150px;
-    position: relative;
-    max-width: 200px;
-    display: inline-block;
-    margin: 15px;
-}
-
 .Filmbox {
     background: #1a162e;
     border-radius: 12px;
@@ -68,6 +60,11 @@ header h1 {
     height: 350px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 12px rgba(166, 108, 255, 0.1);
+    flex: 0 0 150px;
+    position: relative;
+    max-width: 200px;
+    display: inline-block;
+    margin: 15px;
 }
 
 .Filmbox:hover {
