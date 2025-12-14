@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мастер-Фільм</title>
+  <link href="Radiostyle.css" rel="stylesheet">
+	<script src="Filmscript.js"></script>
+</head>
+
+<header>
+  <h1>Мастер-Фільм</h1>
+  <h1>Онлайн Радіо</h1> 
+  <div class = "menu">
+    <ul>
+      <a href="index.html">Головна</a>
+      <a href="Series.html">Серіали</a>
+      <a href="Films.html">Фільми</a>
+      <a href="Shows.html">Мультфільми</a>
+      <a href="onlineradio.html">Онлайн радіо</a>
+      <a href="onlineTV.html">Онлайн ТВ</a>
+    </ul>
+  </div>  
+</header>
+
+<body>
+  <div id="playerBox">
+      <h3 id="nowPlaying">Нічого не грає</h3>
+      <audio id="player" controls autoplay></audio>
+  </div>
+
+  <div id="stations"></div>
+
+  <div class="downloadbox">
+    <h3>Онлайн радіо</h3>
+    <a href="https://drive.google.com/file/d/1BOlWCcDHdkzap5idLklKDvLL_pmyxIDC/view?usp=sharing">
+      <button>Скачати</button>
+    </a>
+  </div>
+
+  <div class="downloadbox">
+    <h3>Список станцій</h3>
+    <a href="https://www.fmlist.org/ukraine.php">
+      <button>Перейти на сайт</button>
+    </a>
+  </div>
+
+  <script>
+  const proxy = "https://corsproxy.io/?";
+
+  const stations = [
+      ["Радіо Культура", "http://91.218.213.49:8000/ur3-mp3"],
+      ["Хіт FM", "https://online.hitfm.ua/HitFM"],
+      ["KISS FM", "https://online.kissfm.ua/KissFM"],
+      ["Radio ROKS", "https://online.radioroks.ua/RadioROKS"],
+      ["Промінь", "http://radio.ukr.radio:8000/ur2-mp3"],
+      ["Українське радіо", "http://radio.ukr.radio:8000/ur1-rv-mp3"],
+
+  ];
+
+  const list = document.getElementById("stations");
+  const player = document.getElementById("player");
+  const nowPlaying = document.getElementById("nowPlaying");
+
+  // Створення списку станцій
+  stations.forEach(([name, url]) => {
+      const div = document.createElement("div");
+      div.className = "station";
+      div.innerText = name;
+      div.onclick = () => playStation(name, url);
+      list.appendChild(div);
+  });
+
+  // Основна функція: спроба прямого відтворення + fallback через проксі
+  function playStation(name, url) {
+      nowPlaying.innerText = `Завантаження: ${name}...`;
+
+      player.src = url;
+
+      // Перша спроба — пряме відтворення
+      player.play().then(() => {
+          nowPlaying.innerText = `▶ ${name}`;
+      }).catch(() => {
+          // Якщо CORS або блокування → проксі
+          nowPlaying.innerText = `CORS блокування — вмикаю через проксі: ${name}`;
+          player.src = proxy + encodeURIComponent(url);
+          player.play().then(() => {
+              nowPlaying.innerText = `▶ ${name} (через проксі)`;
+          }).catch(() => {
+              nowPlaying.innerText = `❌ Не вдалося відтворити: ${name}`;
+          });
+      });
+  }
+  </script>
+
+</body>
+
+<footer>
+    
+
+</footer>
+</html>

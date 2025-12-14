@@ -1,0 +1,115 @@
+body {
+    background: #0d0b1e;
+    color: #eae4ff;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 1em 2em;
+    background: #1a162e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(166, 108, 255, 0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #a66cff;
+}
+
+.menu a {
+    color: #eae4ff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.menu a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: #a66cff;
+    width: 0%;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+}
+
+.menu a:hover {
+    color: #a66cff;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.downloadbox {
+    background: #1a162e;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    height: 100px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(166, 108, 255, 0.1);
+    flex: 0 0 150px;
+    position: relative;
+    max-width: 200px;
+    display: inline-block;
+    margin: 15px;
+}
+
+.download:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(166, 108, 255, 0.3);
+}
+
+.downloadbox h3 {
+    margin: 10px 0 5px;
+    font-size: 1.05em;
+    color: #eae4ff;
+}
+
+.downloadbox button {
+    padding: 6px 14px;
+    background: #a66cff;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.downloadbox button:hover {
+    background: #c29cff;
+}
+
+h2 { 
+    text-align: center; 
+}
+.station {
+    padding: 10px;
+    margin: 6px;
+    background: #0d0b1e;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+}
+.station:hover {
+    background: #a66cff;
+    }
+#playerBox {
+    margin-top: 20px;
+    padding: 20px;
+    background: #0d0b1e;
+    border-radius: 10px;
+    text-align: center;
+}

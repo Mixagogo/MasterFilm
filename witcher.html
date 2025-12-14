@@ -38,40 +38,148 @@
     
   </div>
 
-  <video id="player" controls
-    x-webkit-airplay="allow"
-    disableremoteplayback="true"
-    pip="false"
-    controlslist="nodownload"
-    preload="none"
-  >
-    Ваш браузер не підтримує відео.
-  </video>
 
-  <!-- hls.js бібліотека -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script>
-    const video = document.getElementById('player');
-    const videoSrc = "https://calypso.tortuga.tw/hls/serials/the.witcher.s01e01.dontstoprod.mvo_10535/hls/index.m3u8";
+<div class="video-container">
+  <div class="top-bar">
+    <div class="menu-item" id="season-menu">
+      Сезон 1
+      <svg width="10" height="5.8" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <line x1="1" y1="1" x2="5" y2="4.8" stroke="#ffffff" stroke-width="1" stroke-linecap="round"></line>
+          <line x1="5" y1="4.8" x2="9" y2="1" stroke="#ffffff" stroke-width="1" stroke-linecap="round"></line>
+        </g>
+      </svg>
+      <div class="dropdown">
+        <div data-season="1">Сезон 1</div>
+        <div data-season="2">Сезон 2</div>
+        <div data-season="3">Сезон 3</div>
+      </div>
+    </div>
 
+    <div class="menu-item" id="episode-menu">
+      Серія 1
+      <svg width="10" height="5.8" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <line x1="1" y1="1" x2="5" y2="4.8" stroke="#ffffff" stroke-width="1" stroke-linecap="round"></line>
+          <line x1="5" y1="4.8" x2="9" y2="1" stroke="#ffffff" stroke-width="1" stroke-linecap="round"></line>
+        </g>
+      </svg>
+      <div class="dropdown">
+        <div data-episode="1">Серія 1</div>
+        <div data-episode="2">Серія 2</div>
+        <div data-episode="3">Серія 3</div>
+        <div data-episode="4">Серія 4</div>
+        <div data-episode="5">Серія 5</div>
+        <div data-episode="6">Серія 6</div>
+        <div data-episode="7">Серія 7</div>
+        <div data-episode="8">Серія 8</div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      Postmodern
+      <svg width="10" height="5.8" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <line x1="1" y1="1" x2="5" y2="4.8" stroke="#ffffff" stroke-width="1" stroke-linecap="round"></line>
+          <line x1="5" y1="4.8" x2="9" y2="1" stroke="#ffffff" stroke-width="1" stroke-linecap="round"></line>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+
+  <video id="video" controls preload="none" x-webkit-airplay="allow" disableremoteplayback="true" pip="false"></video>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+  const video = document.getElementById('video');
+
+  // Список серій з різних сезонів
+  const episodes = {
+    1: {
+      1:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e01.postmodern.dub_70182/hls/index.m3u8",
+      2:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e02.postmodern.dub_70183/hls/index.m3u8",
+      3:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e03.postmodern.dub_70184/hls/index.m3u8",
+      4:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e04.postmodern.dub_70185/hls/index.m3u8",
+      5:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e05.postmodern.dub_70186/hls/index.m3u8",
+      6:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e06.postmodern.dub_70187/hls/index.m3u8",
+      7:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e07.postmodern.dub_70188/hls/index.m3u8",
+      8:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e08.postmodern.dub_70189/hls/index.m3u8",
+    },
+    2: {
+      1:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e01.postmodern.dub_70182/hls/index.m3u8",
+      2:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e02.postmodern.dub_70183/hls/index.m3u8",
+      3:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e03.postmodern.dub_70184/hls/index.m3u8",
+      4:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e04.postmodern.dub_70185/hls/index.m3u8",
+      5:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e05.postmodern.dub_70186/hls/index.m3u8",
+      6:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e06.postmodern.dub_70187/hls/index.m3u8",
+      7:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e07.postmodern.dub_70188/hls/index.m3u8",
+      8:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e08.postmodern.dub_70189/hls/index.m3u8",
+    },
+	3: {
+      1:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e01.postmodern.dub_70182/hls/index.m3u8",
+      2:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e02.postmodern.dub_70183/hls/index.m3u8",
+      3:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e03.postmodern.dub_70184/hls/index.m3u8",
+      4:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e04.postmodern.dub_70185/hls/index.m3u8",
+      5:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e05.postmodern.dub_70186/hls/index.m3u8",
+      6:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e06.postmodern.dub_70187/hls/index.m3u8",
+      7:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e07.postmodern.dub_70188/hls/index.m3u8",
+      8:  "https://calypso.tortuga.tw/hls/chest/the.witcher.s01e08.postmodern.dub_70189/hls/index.m3u8",
+    }
+  };
+
+  let currentSeason = 1;
+  let currentEpisode = 1;
+
+  function loadVideo(url) {
     if (Hls.isSupported()) {
       const hls = new Hls();
-      hls.loadSource(videoSrc);
+      hls.loadSource(url);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function () {
-        video.play();
-      });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = videoSrc;
-      video.addEventListener('loadedmetadata', function () {
-        video.play();
-      });
-    } else {
-      alert("Ваш браузер не підтримує HLS.");
+      video.src = url;
     }
-  </script>
+  }
+
+  // Завантажуємо першу серію
+  loadVideo(episodes[currentSeason][currentEpisode]);
+
+  // Клік по меню
+  document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.querySelectorAll('.menu-item').forEach(i => {
+        if (i !== item) i.classList.remove('open');
+      });
+      item.classList.toggle('open');
+    });
+  });
+
+  // Клік по сезону
+  document.querySelectorAll('#season-menu .dropdown div').forEach(div => {
+    div.addEventListener('click', function(e) {
+      currentSeason = this.dataset.season;
+      document.getElementById('season-menu').childNodes[0].textContent = `Сезон ${currentSeason}`;
+      loadVideo(episodes[currentSeason][currentEpisode]);
+    });
+  });
+
+  // Клік по серії
+  document.querySelectorAll('#episode-menu .dropdown div').forEach(div => {
+    div.addEventListener('click', function(e) {
+      currentEpisode = this.dataset.episode;
+      document.getElementById('episode-menu').childNodes[0].textContent = `Серія ${currentEpisode}`;
+      loadVideo(episodes[currentSeason][currentEpisode]);
+    });
+  });
+
+  // Закриття при кліку поза меню
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('open'));
+  });
+</script>
 
 </body>
 </html>
-
 
