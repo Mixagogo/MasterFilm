@@ -1,27 +1,47 @@
-html, body {
+/* ================= ROOT ================= */
+:root {
+    --bg-main: #0b0a1a;
+    --bg-card: #16142b;
+    --bg-header: #14122a;
+
+    --text-main: #e6e1ff;
+    --text-muted: #b6b1e3;
+
+    --accent-purple: #8b5cf6;
+    --accent-purple-light: #a78bfa;
+    --accent-cyan: #22d3ee;
+
+    --glow-purple: rgba(139, 92, 246, 0.35);
+    --glow-cyan: rgba(34, 211, 238, 0.35);
+}
+
+/* ================= BODY ================= */
+body {
     margin: 0;
     padding: 0;
-    background-color: #0d0b1e;
     width: 100%;
     height: 100%;
-    color: #eae4ff;
+    background: radial-gradient(circle at top, #141236 0%, var(--bg-main) 65%);
+    color: var(--text-main);
     font-family: 'Segoe UI', sans-serif;
 }
 
+/* ================= HEADER ================= */
 header {
     padding: 1em 2em;
-    background: #1a162e;
+    background: linear-gradient(90deg, var(--bg-header), #1a1740);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 10px rgba(166, 108, 255, 0.2);
     position: sticky;
     top: 0;
     z-index: 10;
+    box-shadow: 0 4px 20px var(--glow-purple);
 }
 
+/* ================= MENU ================= */
 .menu a {
-    color: #eae4ff;
+    color: var(--text-main);
     text-decoration: none;
     margin-left: 20px;
     font-weight: 600;
@@ -31,24 +51,24 @@ header {
 
 .menu a::after {
     content: "";
-    display: block;
-    height: 2px;
-    background: #a66cff;
-    width: 0%;
-    transition: width 0.3s ease;
     position: absolute;
-    bottom: -4px;
     left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+    transition: width 0.3s ease;
 }
 
 .menu a:hover {
-    color: #a66cff;
+    color: var(--accent-cyan);
 }
 
 .menu a:hover::after {
     width: 100%;
 }
 
+/* ================= TEXT SECTION ================= */
 .Text {
     display: flex;
     flex-wrap: wrap;
@@ -57,51 +77,64 @@ header {
     gap: 40px;
 }
 
+/* ================= POSTER ================= */
 .Poster {
     width: 300px;
     height: 440px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(166, 108, 255, 0.3);
+    border-radius: 14px;
     object-fit: cover;
+    box-shadow:
+        0 0 25px var(--glow-purple),
+        0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-.info, .Summary {
+/* ================= INFO / SUMMARY ================= */
+.info,
+.Summary {
     max-width: 600px;
-    background-color: #1a162e;
+    background: linear-gradient(180deg, #1a1740, var(--bg-card));
     padding: 20px 24px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(166, 108, 255, 0.15);
+    border-radius: 14px;
     font-size: 16px;
     line-height: 1.6;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.5),
+        0 0 18px var(--glow-purple);
 }
 
 .info b {
-    color: #a66cff;
+    color: var(--accent-purple-light);
 }
 
 .Summary {
     margin-top: 20px;
 }
 
+/* ================= VIDEO CONTAINER ================= */
 .video-container {
     margin: 40px auto;
     text-align: center;
-    position: relative; 
-    z-index: 1; 
+    position: relative;
+    z-index: 1;
 }
 
+/* ================= VIDEO ================= */
 video {
     width: 80%;
     max-width: 960px;
     height: auto;
-    background-color: #000;
-    border: 4px solid #a66cff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(166, 108, 255, 0.4);
+    background: black;
+    border-radius: 14px;
     display: block;
     margin: 0 auto;
+    border: 2px solid rgba(139, 92, 246, 0.45);
+    box-shadow:
+        0 0 25px var(--glow-purple),
+        0 12px 35px rgba(0, 0, 0, 0.7);
 }
 
+/* ================= TOP BAR ================= */
 .top-bar {
     display: flex;
     justify-content: center;
@@ -110,21 +143,25 @@ video {
     flex-wrap: wrap;
 }
 
+/* ================= MENU ITEM ================= */
 .menu-item {
     position: relative;
     cursor: pointer;
-    color: #eae4ff;
-    background: #1a162e;
+    color: var(--text-main);
+    background: linear-gradient(180deg, #1a1740, var(--bg-card));
     padding: 10px 20px;
-    border-radius: 8px;
-    border: 1px solid #a66cff;
-    transition: background 0.3s ease, transform 0.2s ease;
-    z-index: 10; 
+    border-radius: 10px;
+    border: 1px solid rgba(139, 92, 246, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 0 12px var(--glow-purple);
+    z-index: 10;
 }
 
 .menu-item:hover {
-    background: #2a2344;
-    transform: scale(1.03);
+    transform: scale(1.06);
+    box-shadow:
+        0 0 18px var(--glow-purple),
+        0 0 28px var(--glow-cyan);
 }
 
 .menu-item svg {
@@ -132,17 +169,20 @@ video {
     vertical-align: middle;
 }
 
+/* ================= DROPDOWN ================= */
 .dropdown {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 110%;
     left: 0;
-    background-color: #1a162e;
-    border: 1px solid #a66cff;
-    border-radius: 8px;
-    min-width: 140px;
+    min-width: 150px;
+    background: linear-gradient(180deg, #1a1740, var(--bg-card));
+    border: 1px solid rgba(139, 92, 246, 0.45);
+    border-radius: 12px;
+    box-shadow:
+        0 0 20px var(--glow-purple),
+        0 8px 25px rgba(0, 0, 0, 0.7);
     z-index: 20;
-    box-shadow: 0 8px 20px rgba(166, 108, 255, 0.3);
 }
 
 .menu-item.open .dropdown {
@@ -152,14 +192,15 @@ video {
 .dropdown div {
     padding: 10px 15px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .dropdown div:hover {
-    background-color: #2a2344;
-    color: #a66cff;
+    background: rgba(139, 92, 246, 0.15);
+    color: var(--accent-cyan);
 }
 
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
     .Text {
         flex-direction: column;
@@ -172,14 +213,15 @@ video {
         height: auto;
     }
 
-    .info, .Summary {
+    .info,
+    .Summary {
         width: 90%;
     }
 
     .top-bar {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
     }
 
     video {

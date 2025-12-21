@@ -1,28 +1,49 @@
+/* ================= ROOT ================= */
+:root {
+    --bg-main: #0b0a1a;
+    --bg-card: #16142b;
+    --bg-header: #14122a;
+
+    --text-main: #e6e1ff;
+    --text-muted: #b6b1e3;
+
+    --accent-purple: #8b5cf6;
+    --accent-purple-light: #a78bfa;
+    --accent-cyan: #22d3ee;
+
+    --glow-purple: rgba(139, 92, 246, 0.35);
+    --glow-cyan: rgba(34, 211, 238, 0.35);
+}
+
+/* ================= BODY ================= */
 body {
-    background: #0d0b1e;
-    color: #eae4ff;
+    background: radial-gradient(circle at top, #141236 0%, var(--bg-main) 65%);
+    color: var(--text-main);
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/* ================= HEADER ================= */
 header {
     padding: 1em 2em;
-    background: #1a162e;
+    background: linear-gradient(90deg, var(--bg-header), #1a1740);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 10px rgba(166, 108, 255, 0.15);
+    box-shadow: 0 4px 20px var(--glow-purple);
 }
 
 header h1 {
     margin: 0;
     font-size: 1.8em;
-    color: #a66cff;
+    color: var(--accent-purple);
+    text-shadow: 0 0 10px var(--glow-purple);
 }
 
+/* ================= MENU ================= */
 .menu a {
-    color: #eae4ff;
+    color: var(--text-main);
     text-decoration: none;
     margin-left: 20px;
     font-weight: 600;
@@ -32,91 +53,105 @@ header h1 {
 
 .menu a::after {
     content: "";
-    display: block;
-    height: 2px;
-    background: #a66cff;
-    width: 0%;
-    transition: width 0.3s ease;
     position: absolute;
-    bottom: -4px;
     left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+    transition: width 0.3s ease;
 }
 
 .menu a:hover {
-    color: #a66cff;
+    color: var(--accent-cyan);
 }
 
 .menu a:hover::after {
     width: 100%;
 }
 
+/* ================= FILMBOX ================= */
 .Filmbox {
-    background: #1a162e;
-    border-radius: 12px;
+    background: linear-gradient(180deg, #1a1740, var(--bg-card));
+    border-radius: 14px;
     padding: 12px;
     text-align: center;
     cursor: pointer;
     position: relative;
     height: 350px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(166, 108, 255, 0.1);
     flex: 0 0 150px;
-    position: relative;
     max-width: 200px;
     display: inline-block;
     margin: 15px;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.5),
+        0 0 14px var(--glow-purple);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .Filmbox:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(166, 108, 255, 0.3);
+    transform: translateY(-6px) scale(1.06);
+    box-shadow:
+        0 0 22px var(--glow-purple),
+        0 0 32px rgba(34, 211, 238, 0.2);
 }
 
+/* ================= POSTER ================= */
 .Filmbox img.Poster {
     width: 150px;
     height: 230px;
-    border-radius: 8px;
+    border-radius: 10px;
     object-fit: cover;
     margin-bottom: 10px;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.6);
 }
 
+/* ================= TITLE ================= */
 .Filmbox h3 {
-    margin: 10px 0 5px;
+    margin: 10px 0 6px;
     font-size: 1.05em;
-    color: #eae4ff;
+    color: var(--text-main);
 }
 
+/* ================= BUTTON ================= */
 .Filmbox button {
-    padding: 6px 14px;
-    background: #a66cff;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     color: #fff;
     cursor: pointer;
-    transition: background 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 0 12px var(--glow-purple);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .Filmbox button:hover {
-    background: #c29cff;
+    transform: scale(1.06);
+    box-shadow:
+        0 0 18px var(--glow-purple),
+        0 0 25px var(--glow-cyan);
 }
 
-/* Tooltip container */
+/* ================= TOOLTIP ================= */
 .tooltip {
     position: absolute;
-    bottom: 70%;
+    bottom: 75%;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(30, 20, 50, 0.95);
-    color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    width: 250px;
+    background: rgba(18, 16, 40, 0.96);
+    color: var(--text-main);
+    padding: 12px;
+    border-radius: 10px;
+    width: 260px;
     font-size: 13px;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 1;
-    box-shadow: 0 2px 10px rgba(166, 108, 255, 0.3);
+    z-index: 10;
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    box-shadow: 0 0 20px var(--glow-purple);
 }
 
 .Filmbox:hover .tooltip {
@@ -131,5 +166,5 @@ header h1 {
     margin-left: -6px;
     border-width: 6px;
     border-style: solid;
-    border-color: rgba(30, 20, 50, 0.95) transparent transparent transparent;
+    border-color: rgba(18, 16, 40, 0.96) transparent transparent transparen
 }

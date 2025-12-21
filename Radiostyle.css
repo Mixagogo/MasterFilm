@@ -1,28 +1,49 @@
+/* ================= ROOT ================= */
+:root {
+    --bg-main: #0b0a1a;
+    --bg-card: #16142b;
+    --bg-header: #14122a;
+
+    --text-main: #e6e1ff;
+    --text-muted: #b6b1e3;
+
+    --accent-purple: #8b5cf6;
+    --accent-purple-light: #a78bfa;
+    --accent-cyan: #22d3ee;
+
+    --glow-purple: rgba(139, 92, 246, 0.35);
+    --glow-cyan: rgba(34, 211, 238, 0.35);
+}
+
+/* ================= BODY ================= */
 body {
-    background: #0d0b1e;
-    color: #eae4ff;
+    background: radial-gradient(circle at top, #141236 0%, var(--bg-main) 65%);
+    color: var(--text-main);
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/* ================= HEADER ================= */
 header {
     padding: 1em 2em;
-    background: #1a162e;
+    background: linear-gradient(90deg, var(--bg-header), #1a1740);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 10px rgba(166, 108, 255, 0.15);
+    box-shadow: 0 4px 20px var(--glow-purple);
 }
 
 header h1 {
     margin: 0;
     font-size: 1.8em;
-    color: #a66cff;
+    color: var(--accent-purple);
+    text-shadow: 0 0 10px var(--glow-purple);
 }
 
+/* ================= MENU ================= */
 .menu a {
-    color: #eae4ff;
+    color: var(--text-main);
     text-decoration: none;
     margin-left: 20px;
     font-weight: 600;
@@ -32,84 +53,111 @@ header h1 {
 
 .menu a::after {
     content: "";
-    display: block;
-    height: 2px;
-    background: #a66cff;
-    width: 0%;
-    transition: width 0.3s ease;
     position: absolute;
-    bottom: -4px;
     left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+    transition: width 0.3s ease;
 }
 
 .menu a:hover {
-    color: #a66cff;
+    color: var(--accent-cyan);
 }
 
 .menu a:hover::after {
     width: 100%;
 }
 
+/* ================= DOWNLOAD BOX ================= */
 .downloadbox {
-    background: #1a162e;
-    border-radius: 12px;
-    padding: 12px;
+    background: linear-gradient(180deg, #1a1740, var(--bg-card));
+    border-radius: 14px;
+    padding: 14px;
     text-align: center;
     cursor: pointer;
-    height: 100px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(166, 108, 255, 0.1);
+    height: 110px;
     flex: 0 0 150px;
-    position: relative;
     max-width: 200px;
     display: inline-block;
     margin: 15px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.5),
+        0 0 14px var(--glow-purple);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.download:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(166, 108, 255, 0.3);
+.downloadbox:hover {
+    transform: translateY(-6px) scale(1.06);
+    box-shadow:
+        0 0 22px var(--glow-purple),
+        0 0 30px rgba(34, 211, 238, 0.25);
 }
 
+/* ================= DOWNLOAD TITLE ================= */
 .downloadbox h3 {
-    margin: 10px 0 5px;
+    margin: 10px 0 6px;
     font-size: 1.05em;
-    color: #eae4ff;
+    color: var(--text-main);
 }
 
+/* ================= DOWNLOAD BUTTON ================= */
 .downloadbox button {
-    padding: 6px 14px;
-    background: #a66cff;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     color: #fff;
     cursor: pointer;
-    transition: background 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 0 12px var(--glow-purple);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .downloadbox button:hover {
-    background: #c29cff;
+    transform: scale(1.06);
+    box-shadow:
+        0 0 18px var(--glow-purple),
+        0 0 25px var(--glow-cyan);
 }
 
-h2 { 
-    text-align: center; 
-}
-.station {
-    padding: 10px;
-    margin: 6px;
-    background: #0d0b1e;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.2s;
+/* ================= HEADINGS ================= */
+h2 {
     text-align: center;
+    color: var(--accent-purple-light);
 }
+
+/* ================= STATION ================= */
+.station {
+    padding: 12px;
+    margin: 8px;
+    background: linear-gradient(180deg, #1a1740, var(--bg-card));
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    box-shadow: 0 0 12px var(--glow-purple);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 .station:hover {
-    background: #a66cff;
-    }
+    transform: scale(1.04);
+    box-shadow:
+        0 0 18px var(--glow-purple),
+        0 0 26px var(--glow-cyan);
+}
+
+/* ================= PLAYER BOX ================= */
 #playerBox {
     margin-top: 20px;
     padding: 20px;
-    background: #0d0b1e;
-    border-radius: 10px;
+    background: linear-gradient(180deg, #1a1740, var(--bg-card));
+    border-radius: 14px;
     text-align: center;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    box-shadow:
+        0 0 20px var(--glow-purple),
+        0 8px 25px rgba(0, 0, 0, 0.7);
 }
