@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Перегляд фільму HLS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="watchstyle.css" rel="stylesheet">
+
+</head>
+
+
+<header>
+  <h1>Мастер-Фільм</h1>
+  <div class="menu">
+    <a href="index.html">Головна</a>
+    <a href="Series.html">Серіали</a>
+    <a href="Films.html">Фільми</a>
+    <a href="Shows.html">Мультфільми</a>
+    <a href="onlineradio.html">Онлайн радіо</a>
+    <a href="onlineTV.html">Онлайн ТВ</a>
+  </div>
+</header>
+
+<body>
+  <div class="Text">
+    
+    <img class="Poster" src="https://upload.wikimedia.org/wikipedia/uk/thumb/c/cd/%D0%A2%D0%B8%D1%85%D0%B5_%D0%BC%D1%96%D1%81%D1%86%D0%B5_-_%D0%94%D0%B5%D0%BD%D1%8C_%D0%BF%D0%B5%D1%80%D1%88%D0%B8%D0%B9_-_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.png/250px-%D0%A2%D0%B8%D1%85%D0%B5_%D0%BC%D1%96%D1%81%D1%86%D0%B5_-_%D0%94%D0%B5%D0%BD%D1%8C_%D0%BF%D0%B5%D1%80%D1%88%D0%B8%D0%B9_-_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.png">
+
+    <div class="info">
+        Рік:2024
+        Жанр:Фільми, Драма, Фантастика, Жахи, Трилер
+        Країна:США, Велика Британія, Канада
+        Режисер:Майкл Сарноскі
+        Актори:Лупіта Ніонго, Джозеф Квінн, Алекс Вулф, Джимон Гонсу, Еліан Умугіре, Такунда Хумало, Елфі Тодд, Ронні Ле Дрю
+    </div>
+
+    <div class="Summary">
+      З перших хвилин глядачі стають свідками раптової та шокуючої атаки інопланетних істот, яка повністю змінює життя людства. Головні герої, опинившись в епіцентрі катастрофи, швидко усвідомлюють, що їхнє виживання безпосередньо залежить від здатності зберігати абсолютну тишу. Історія занурює глядачів у життя кількох персонажів, які намагаються знайти безпечне місце та способи захисту від чудовиськ, чиї гострі слухові органи дозволяють їм миттєво виявляти будь-який звук.     
+    </div>
+    
+  </div>
+
+  <video id="player" controls
+    x-webkit-airplay="allow"
+    disableremoteplayback="true"
+    pip="false"
+    controlslist="nodownload"
+    preload="none"
+  >
+    Ваш браузер не підтримує відео.
+  </video>
+
+  <!-- hls.js бібліотека -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('player');
+    const videoSrc = "https://calypso.tortuga.tw/hls/films/a.quiet.place.day.one.2024.bdremux.1080p.ledoyen.dub_101663/hls/index.m3u8";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', function () {
+        video.play();
+      });
+    } else {
+      alert("Ваш браузер не підтримує HLS.");
+    }
+  </script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Перегляд фільму HLS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="watchstyle.css" rel="stylesheet">
+
+</head>
+
+
+<header>
+  <h1>Мастер-Фільм</h1>
+  <div class="menu">
+    <a href="index.html">Головна</a>
+    <a href="Series.html">Серіали</a>
+    <a href="Films.html">Фільми</a>
+    <a href="Shows.html">Мультфільми</a>
+    <a href="onlineradio.html">Онлайн радіо</a>
+    <a href="onlineTV.html">Онлайн ТВ</a>
+  </div>
+</header>
+
+<body>
+  <div class="Text">
+    
+    <img class="Poster" src="https://upload.wikimedia.org/wikipedia/uk/thumb/2/23/%D0%90%D0%BA%D0%B2%D0%B0%D0%BC%D0%B5%D0%BD_%D0%9F%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/250px-%D0%90%D0%BA%D0%B2%D0%B0%D0%BC%D0%B5%D0%BD_%D0%9F%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg">
+
+    <div class="info">
+      Рік:2018
+      Жанр:Фільми, Фантастика, Фентезі, Бойовик, Пригоди
+      Країна:США, Австралія
+      Режисер:Джеймс Ван
+      Актори:Джейсон Момоа, Ембер Герд, Віллем Дефо, Патрік Уілсон, Ніколь Кідман, Дольф Лундгрен, Яхья Абдул-Марін II, Темуера Моррісон, Майкл Біч
+    </div>
+
+    <div class="Summary">
+      Одного разу Артур Каррі, відомий як Аквамен, дізнається, що він – дитя двох світів: його батько був звичайною людиною, а мати – королевою підводного королівства Атлантиди, що дає йому право претендувати на трон. Однак сходженню Артура на престол заважає його зведений брат Орм, в даний час керуючий Атлантидою і бажаючий розв'язати війну з людьми з надводного світу, які забруднювали океани протягом довгих років. Артуру доведеться здійснити небезпечну подорож, щоб з'ясувати, чи гідний він бути правителем Атлантиди, і не допустити катастрофічних наслідків для всього людства...
+    </div>
+    
+  </div>
+
+  <video id="player" controls
+    x-webkit-airplay="allow"
+    disableremoteplayback="true"
+    pip="false"
+    controlslist="nodownload"
+    preload="none"
+  >
+    Ваш браузер не підтримує відео.
+  </video>
+
+  <!-- hls.js бібліотека -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('player');
+    const videoSrc = "https://calypso.tortuga.tw/hls/films/aquaman.2018.bdrip.1080p.h.265.imax_1708/hls/index.m3u8";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', function () {
+        video.play();
+      });
+    } else {
+      alert("Ваш браузер не підтримує HLS.");
+    }
+  </script>
+
+</body>
+</html>
+
+

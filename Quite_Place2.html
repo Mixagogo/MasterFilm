@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Перегляд фільму HLS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="watchstyle.css" rel="stylesheet">
+
+</head>
+
+
+<header>
+  <h1>Мастер-Фільм</h1>
+  <div class="menu">
+    <a href="index.html">Головна</a>
+    <a href="Series.html">Серіали</a>
+    <a href="Films.html">Фільми</a>
+    <a href="Shows.html">Мультфільми</a>
+    <a href="onlineradio.html">Онлайн радіо</a>
+    <a href="onlineTV.html">Онлайн ТВ</a>
+  </div>
+</header>
+
+<body>
+  <div class="Text">
+    
+    <img class="Poster" src="https://upload.wikimedia.org/wikipedia/uk/thumb/f/fd/%D0%A2%D0%B8%D1%85%D0%B5_%D0%BC%D1%96%D1%81%D1%86%D0%B5_2.png/250px-%D0%A2%D0%B8%D1%85%D0%B5_%D0%BC%D1%96%D1%81%D1%86%D0%B5_2.png">
+
+    <div class="info">
+        Рік:2020
+        Жанр:Фільми, Драма, Фантастика, Жахи, Трилер
+        Країна:США
+        Режисер:Джон Красінські
+        Актори:Емілі Блант, Міллісент Сіммондс, Кілліан Мерфі, Ноа Джуп, Джон Красінські, Джимон Гонсу, Скут МакНері, Захарі Голінгер
+    </div>
+
+    <div class="Summary">
+      474 дні тому життя на Землі раптово змінилося: планету атакували кровожерливі монстри, які знаходять своїх жертв завдяки шуму. Сім'я Ебботт тривалий час переховувалась в ізоляції, але одного разу зіштовхнулася зі смертельною небезпекою на порозі власного будинку. Щоб урятувати близьких, батько сімейства Лі пожертвував собою. Тепер його дружина Евелін, глуха дочка Реган, син Маркус та новонароджений малюк мають виживати самостійно. Вони залишають свою віддалену ферму і вирушають на пошуки інших. На своєму шляху герої зустрінуть старих друзів, нових союзників, несподіваних ворогів та смертельну небезпеку...
+    </div>
+    
+  </div>
+
+  <video id="player" controls
+    x-webkit-airplay="allow"
+    disableremoteplayback="true"
+    pip="false"
+    controlslist="nodownload"
+    preload="none"
+  >
+    Ваш браузер не підтримує відео.
+  </video>
+
+  <!-- hls.js бібліотека -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('player');
+    const videoSrc = "https://calypso.tortuga.tw/hls/chest/a_quiet_place_part_ii_2020_webrip_1080p_61517/hls/index.m3u8";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', function () {
+        video.play();
+      });
+    } else {
+      alert("Ваш браузер не підтримує HLS.");
+    }
+  </script>
+
+</body>
+</html>
+
+

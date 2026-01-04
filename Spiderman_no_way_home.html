@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Перегляд фільму HLS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="watchstyle.css" rel="stylesheet">
+
+</head>
+
+
+<header>
+  <h1>Мастер-Фільм</h1>
+  <div class="menu">
+    <a href="index.html">Головна</a>
+    <a href="Series.html">Серіали</a>
+    <a href="Films.html">Фільми</a>
+    <a href="Shows.html">Мультфільми</a>
+    <a href="onlineradio.html">Онлайн радіо</a>
+    <a href="onlineTV.html">Онлайн ТВ</a>
+  </div>
+</header>
+
+<body>
+  <div class="Text">
+    
+    <img class="Poster" src="https://upload.wikimedia.org/wikipedia/uk/0/05/%D0%A2%D1%80%D0%B5%D1%82%D1%96%D0%B9_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80_%D0%9B%D1%8E%D0%B4%D0%B8%D0%BD%D0%B8-%D0%BF%D0%B0%D0%B2%D1%83%D0%BA%D0%B0._%D0%94%D0%BE%D0%B4%D0%BE%D0%BC%D1%83_%D1%88%D0%BB%D1%8F%D1%85%D1%83_%D0%BD%D0%B5%D0%BC%D0%B0.jpg">
+
+    <div class="info">
+      Рік:2021
+      Жанр:Фільми, Фантастика, Фентезі, Бойовик, Пригоди
+      Країна:США, Ісландія
+      Режисер:Джон Воттс
+      Актори:Том Голланд, Зендея, Бенедикт Камбербетч, Маріса Томей, Джон Фавро, Віллем Дефо, Енгурі Райс, Дж.К. Сіммонс, Бенедикт Вонг
+    </div>
+
+    <div class="Summary">
+      Містеріо та окуляри Тоні Старка зробили свою справу: відтепер Пітер Паркер – суперзірка. У третій частини пригод школяра-супергероя його особистість розкрита, і у всесвіті Marvel він став офіційним спадкоємцем Залізної людини. Відтепер йому вже ніколи не бути звичайним школярем та добрим сусідом. Як із цим впорається Людина-павук?
+    </div>
+    
+  </div>
+
+  <video id="player" controls
+    x-webkit-airplay="allow"
+    disableremoteplayback="true"
+    pip="false"
+    controlslist="nodownload"
+    preload="none"
+  >
+    Ваш браузер не підтримує відео.
+  </video>
+
+  <!-- hls.js бібліотека -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('player');
+    const videoSrc = "https://calypso.tortuga.tw/hls/films/spiderman_no_way_home_2021_bdrip_1080p_75145/hls/index.m3u8";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', function () {
+        video.play();
+      });
+    } else {
+      alert("Ваш браузер не підтримує HLS.");
+    }
+  </script>
+
+</body>
+</html>
+
+
